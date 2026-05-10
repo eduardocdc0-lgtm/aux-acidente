@@ -465,6 +465,15 @@ footer .lgpd{font-size:0.82rem;margin-top:18px;color:rgba(184,194,209,0.55);max-
       </div>
 
       <div class="form-group">
+        <label>Tinha carteira assinada na época do acidente?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="carteira_assinada" value="sim" required> Sim</label>
+          <label><input type="radio" name="carteira_assinada" value="nao"> Não</label>
+          <label><input type="radio" name="carteira_assinada" value="nao-sei"> Não sei</label>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label>Já recebeu auxílio-doença do INSS por causa desse acidente?</label>
         <div class="radio-group">
           <label><input type="radio" name="recebeu_auxilio_doenca" value="sim" required> Sim</label>
@@ -474,8 +483,8 @@ footer .lgpd{font-size:0.82rem;margin-top:18px;color:rgba(184,194,209,0.55);max-
       </div>
 
       <div class="form-group">
-        <label for="caso">Conte brevemente o que aconteceu</label>
-        <textarea id="caso" name="descricao_caso" placeholder="O que aconteceu, qual sequela ficou, se procurou o INSS..." required></textarea>
+        <label for="caso">Ficou com alguma limitação, dor ou redução de movimentos?</label>
+        <textarea id="caso" name="descricao_limitacao" placeholder="Conte brevemente o que ficou depois do acidente (dor, limitação de movimento, perda de força, sequela visível...)" required></textarea>
       </div>
 
       <button type="submit" class="btn btn-dourado form-submit">Analisar meu caso →</button>
