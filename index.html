@@ -115,6 +115,12 @@ section{padding:80px 0}
 .hero .ctas{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .hero .form-link{color:var(--texto-sec);font-size:0.95rem}
 .hero .form-link:hover{color:var(--dourado)}
+.hero-proof{
+  margin-top:24px;display:flex;flex-wrap:wrap;gap:6px 4px;
+  font-size:0.84rem;color:var(--texto-sec);font-weight:500;
+}
+.hero-proof span{display:inline-flex;align-items:center;gap:4px}
+.hero-proof strong{color:var(--dourado);font-weight:700}
 .hero-image{display:flex;justify-content:center;position:relative}
 .hero-image::before{
   content:"";position:absolute;inset:-20px;
@@ -133,6 +139,32 @@ section{padding:80px 0}
   .hero-image{order:-1}
   .hero-image img{max-width:240px}
 }
+
+/* POR QUE POUCA GENTE SABE */
+.por-que{background:var(--preto-card);border-top:1px solid var(--borda)}
+.por-que h2{
+  text-align:center;max-width:780px;margin:0 auto 48px;
+  font-style:italic;color:var(--branco);
+  font-size:clamp(1.4rem,3vw,2rem);
+}
+.por-que h2::before{content:"\201C";color:var(--dourado);margin-right:4px}
+.por-que h2::after{content:"\201D";color:var(--dourado);margin-left:4px}
+.proof-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+.proof-card{
+  background:var(--preto);padding:32px 28px;border-radius:8px;
+  border:1px solid var(--borda);text-align:center;
+  transition:transform .2s,border-color .2s;
+}
+.proof-card:hover{transform:translateY(-2px);border-color:rgba(200,155,60,0.4)}
+.proof-icon{font-size:2.4rem;color:var(--dourado);margin-bottom:14px;line-height:1}
+.proof-card h3{
+  color:var(--dourado);font-family:'Inter',sans-serif;font-weight:700;
+  font-size:1.05rem;margin-bottom:10px;letter-spacing:-0.3px;
+}
+.proof-card p{color:var(--texto-sec);margin:0;font-size:0.94rem;line-height:1.55}
 
 /* O QUE É */
 .oque-e{background:var(--preto)}
@@ -303,9 +335,38 @@ footer .lgpd{font-size:0.82rem;margin-top:18px;color:rgba(184,194,209,0.55);max-
           Saber se tenho direito →
         </a>
       </div>
+      <p class="hero-proof">
+        <span>⚖ Benefício previsto na <strong>Lei 8.213/91</strong></span>
+        <span>· Pago pelo <strong>INSS</strong></span>
+        <span>· Resposta em até <strong>24h</strong></span>
+      </p>
     </div>
     <div class="hero-image">
       <img src="eduardo.jpg" alt="Eduardo Rodrigues — Advocacia Previdenciária">
+    </div>
+  </div>
+</section>
+
+<!-- POR QUE POUCA GENTE SABE -->
+<section class="por-que">
+  <div class="container">
+    <h2>Mas... se eu tenho direito, por que ninguém me avisou?</h2>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-icon">⚖</div>
+        <h3>É direito previsto em lei</h3>
+        <p>Art. 86 da Lei 8.213/91, vigente desde 1991. Não é benefício de governo nem promoção — é direito do trabalhador acidentado.</p>
+      </div>
+      <div class="proof-card">
+        <div class="proof-icon">🏛</div>
+        <h3>O INSS não procura ninguém</h3>
+        <p>O órgão paga quando a pessoa pede e comprova. Não há cadastro automático, nem aviso. Quem não pede, não recebe.</p>
+      </div>
+      <div class="proof-card">
+        <div class="proof-icon">👥</div>
+        <h3>Quase ninguém sabe que existe</h3>
+        <p>A maioria nunca ouviu falar do auxílio-acidente. Quem ficou com sequela acaba absorvendo o prejuízo sem saber que existe uma indenização disponível.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -430,9 +491,13 @@ footer .lgpd{font-size:0.82rem;margin-top:18px;color:rgba(184,194,209,0.55);max-
 <!-- FORM -->
 <section class="form-section" id="formulario">
   <div class="container">
+    <div style="text-align:center;margin-bottom:8px">
+      <span style="display:inline-block;background:rgba(200,155,60,0.15);color:var(--dourado);font-size:0.78rem;font-weight:800;padding:7px 18px;border-radius:100px;letter-spacing:1.5px;text-transform:uppercase;border:1px solid rgba(200,155,60,0.4);font-family:'Inter',sans-serif">⚖ Análise gratuita</span>
+    </div>
     <h2 style="text-align:center">Conte sobre o seu caso</h2>
     <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto">
-      Análise inicial gratuita. Resposta no mesmo dia.
+      Em até 24h te respondemos se vale ou não seguir com a ação.<br>
+      Sem custo. Sem enrolação.
     </p>
 
     <div class="success-msg" id="successMsg">
@@ -488,6 +553,10 @@ footer .lgpd{font-size:0.82rem;margin-top:18px;color:rgba(184,194,209,0.55);max-
       </div>
 
       <button type="submit" class="btn btn-dourado form-submit">Analisar meu caso →</button>
+      <p style="text-align:center;margin-top:16px;font-size:0.82rem;color:var(--texto-sec);line-height:1.5">
+        🔒 Sigilo profissional · Seus dados são confidenciais (LGPD)<br>
+        Resposta em até 24h pelo WhatsApp informado
+      </p>
     </form>
   </div>
 </section>
