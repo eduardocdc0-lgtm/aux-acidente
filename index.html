@@ -505,6 +505,7 @@ footer .lgpd{font-size:0.82rem;margin-top:18px;color:rgba(184,194,209,0.55);max-
 
     <form name="auxilio-acidente" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="leadForm">
       <input type="hidden" name="form-name" value="auxilio-acidente">
+      <input type="hidden" name="event_id" id="event_id" value="">
       <p style="display:none"><label>Não preencha: <input name="bot-field"></label></p>
 
       <div class="form-group">
@@ -576,13 +577,22 @@ footer .lgpd{font-size:0.82rem;margin-top:18px;color:rgba(184,194,209,0.55);max-
 </footer>
 
 <script>
-// Disparar evento Lead pro Meta Pixel quando form é enviado com sucesso
+// Gerar event_id único no page load — mesmo ID será usado pelo pixel (browser) e CAPI (server) pra deduplicar
+function uuid(){
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){
+    var r=Math.random()*16|0,v=c==='x'?r:(r&0x3|0x8);return v.toString(16);
+  });
+}
+var sessionEventId = uuid();
+document.getElementById('event_id').value = sessionEventId;
+
+// Disparar evento Lead pro Meta Pixel (browser) — com event_id pra dedupe com CAPI server-side
 document.getElementById('leadForm').addEventListener('submit', function(e){
   if(typeof fbq !== 'undefined'){
     fbq('track', 'Lead', {
       content_name: 'Auxilio-Acidente LP',
       content_category: 'Previdenciario'
-    });
+    }, {eventID: sessionEventId});
   }
 });
 
